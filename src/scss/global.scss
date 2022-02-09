@@ -1,26 +1,38 @@
+@import './fonts.scss';
 @import './icons.scss';
+
+$off-white: #fbfcfd;
+$grey: #8d95a3;
+$blue: #0057b3;
 
 body {
   margin: 0;
   box-sizing: border-box;
+  font-family: "Roboto";
+  background: $off-white;
 }
 
 .container {
   z-index: 1;
   position: relative;
   margin: auto;
-  width: 1440px;
-  height: 900px;
-  background: #8d95a3;
+
+  width: 100vw;
+  max-width: 1440px; 
+  
+  height: 100vh; 
+  max-height: 900px; 
+
+  background: $grey;
 }
 
 .header {
   position: absolute;
-  width: 1440px;
+  width: 100%;
   height: 60px;
   left: 0px;
   top: 0px;
-  background: #0057b3;
+  background: $blue;
 }
 
 .header-title {
@@ -29,132 +41,66 @@ body {
   height: 28px;
   left: 120px;
   top: 16px;
-  font-family: "Roboto";
   font-style: normal;
   font-weight: bold;
   font-size: 24px;
   line-height: 28px;
-  color: #fbfcfd;
+  color: $off-white;
 }
 
-.block-l {
+.review {
   position: absolute;
   width: 1200px;
   height: 250px;
   left: 120px;
   top: 100px;
-  background: #fbfcfd;
+  background: $off-white;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
-.block-m {
-  position: absolute;
-  width: 1200px;
-  height: 146px;
-  left: 120px;
-  top: 405px;
-  background: #fbfcfd;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-}
-
-.glad-you-liked-it {
-  /* Glad you Liked it! */
-  position: absolute;
-  width: 368px;
-  height: 21px;
-  left: 200px;
-  top: 440px;
-  font-family: "Roboto";
+.review-title {
+  position: absolute; 
+  width: 504px;
+  height: 28px;
+  left: 80px;
+  top: 20px;
   font-style: normal;
-  font-weight: normal;
-  font-size: 18px;
-  line-height: 21px;
-  /* identical to box height */
-  color: #5d6167;
-}
-
-.jane-doe {
-  /* Jane Doe */
-  position: absolute;
-  width: 240px;
-  height: 16px;
-  left: 200px;
-  top: 490px;
-  font-family: "Roboto";
-  font-style: normal;
-  font-weight: normal;
-  font-size: 14px;
-  line-height: 16px;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 28px;
   color: #000000;
 }
 
-.reply-date {
-  /* 01/01/2019 */
-  position: absolute;
-  width: 300px;
-  height: 16px;
-  left: 290px;
-  top: 490px;
-  font-family: "Roboto";
-  font-style: normal;
-  font-weight: normal;
-  font-size: 14px;
-  line-height: 16px;
-  color: #8d95a3;
-}
-
-.reply-arrow {
-  /*  */
-  position: absolute;
-  width: 18px;
-  height: 18px;
-  left: 148px;
-  top: 440px;
-  font-family: "Font Awesome 5 Pro";
-  font-size: 18px;
-  line-height: 18px;
-  /* identical to box height */
-  color: #097ae6;
-}
-
-.stars {
-  /*  */
+.review-stars {
   position: absolute;
   width: 408px;
   height: 18px;
-  left: 200px;
-  top: 153px;
-  font-family: "Font Awesome 5 Pro";
+  left: 80px;
+  top: 53px;
   font-size: 18px;
   line-height: 18px;
-  /* identical to box height */
   color: #fbcd33;
 }
 
-.so-good {
-  /* So gooood! */
+.review-text {
   position: absolute;
   width: 368px;
   height: 21px;
-  left: 200px;
-  top: 196px;
-  font-family: "Roboto";
+  left: 80px;
+  top: 96px;
   font-style: normal;
   font-weight: normal;
   font-size: 18px;
   line-height: 21px;
-  /* identical to box height */
   color: #5d6167;
 }
 
-.john-doe {
-  /* John Doe */
+.review-author {
   position: absolute;
   width: 240px;
   height: 16px;
-  left: 200px;
-  top: 314px;
-  font-family: "Roboto";
+  left: 80px;
+  top: 214px;
   font-style: normal;
   font-weight: normal;
   font-size: 14px;
@@ -163,97 +109,59 @@ body {
 }
 
 .review-date {
-  /* 01/01/2019 */
   position: absolute;
   width: 300px;
   height: 16px;
-  left: 290px;
-  top: 314px;
-  font-family: "Roboto";
+  left: 170px;
+  top: 214px;
   font-style: normal;
   font-weight: normal;
   font-size: 14px;
   line-height: 16px;
-  color: #8d95a3;
+  color: $grey;
 }
 
-.more-dots {
-  /*  */
+.reply {
   position: absolute;
-  width: 18px;
-  height: 18px;
-  left: 1274px;
-  top: 440px;
-  font-family: "Font Awesome 5 Pro";
-  font-size: 18px;
-  line-height: 18px;
-  /* identical to box height */
-  color: #0057b3;
-}
-
-.block-s {
-  position: absolute;
-  width: 300px;
-  height: 250px;
+  width: 1200px;
+  height: 146px;
   left: 120px;
-  top: 100px;
-  background: #fbfcfd;
+  top: 405px; 
+  background: $off-white;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
-.taco-johns {
-  /* Taco John’s */
+.dots {
   position: absolute;
-  width: 126px;
-  height: 28px;
-  left: 140px;
-  top: 120px;
-  font-family: "Roboto";
-  font-style: normal;
-  font-weight: bold;
-  font-size: 24px;
-  line-height: 28px;
-  color: #000000;
-}
-
-.taco-stars {
-  /*  */
-  position: absolute;
-  width: 102px;
+  width: 18px;
   height: 18px;
-  left: 140px;
-  top: 153px;
-  font-family: "Font Awesome 5 Pro";
+  left: 1154px;
+  top: 35px;
   font-size: 18px;
   line-height: 18px;
-  /* identical to box height */
-  color: #fbcd33;
+  color: $blue;
 }
 
-.tacos-good {
-  /* So gooood! */
+
+.glad-you-liked-it {
   position: absolute;
-  width: 92px;
+  width: 368px;
   height: 21px;
-  left: 140px;
-  top: 196px;
-  font-family: "Roboto";
+  left: 80px;
+  top: 35px;
   font-style: normal;
   font-weight: normal;
   font-size: 18px;
   line-height: 21px;
-  /* identical to box height */
   color: #5d6167;
 }
 
-.taco-doe {
-  /* John Doe */
+.jane-doe {
   position: absolute;
-  width: 60px;
+  width: 240px;
   height: 16px;
-  left: 140px;
-  top: 314px;
-  font-family: "Roboto";
+  left: 80px;
+  top: 85px;
   font-style: normal;
   font-weight: normal;
   font-size: 14px;
@@ -261,45 +169,107 @@ body {
   color: #000000;
 }
 
-.taco-date {
-  /* 01/01/2019 */
+.reply-date {
   position: absolute;
-  width: 75px;
+  width: 300px;
   height: 16px;
-  left: 228px;
-  top: 314px;
-  font-family: "Roboto";
+  left: 170px;
+  top: 85px;
   font-style: normal;
   font-weight: normal;
   font-size: 14px;
   line-height: 16px;
-  color: #8d95a3;
+  color: $grey;
 }
 
-.taco-comments-icon {
-  /*  */
+.reply-arrow {
   position: absolute;
-  width: 16px;
-  height: 14px;
-  left: 384px;
-  top: 315px;
-  font-family: "Font Awesome 5 Pro";
-  font-size: 14px;
-  line-height: 14px;
-  /* identical to box height */
-  color: #0057b3;
+  width: 18px;
+  height: 18px;
+  left: 28px;
+  top: 35px;
+  font-size: 18px;
+  line-height: 18px;
+  color: #097ae6;
 }
 
-.review-title {
+
+
+.card {
   position: absolute;
-  width: 504px;
-  height: 28px;
-  left: 200px;
-  top: 120px;
-  font-family: "Roboto";
+  width: 300px;
+  height: 250px;
+  left: 120px; 
+  /* top: 100px; */
+  bottom: 0; /* temp */
+  background: $off-white;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.card-title {
+  position: absolute;
+  left: 20px;
+  top: 20px;
   font-style: normal;
   font-weight: bold;
   font-size: 24px;
   line-height: 28px;
   color: #000000;
+}
+
+.card-stars {
+  position: absolute;
+  left: 20px;
+  top: 53px;
+  font-size: 18px;
+  line-height: 18px;
+  color: #fbcd33;
+}
+
+.card-text {
+  position: absolute;
+  left: 20px;
+  top: 96px;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 21px;
+  color: #5d6167;
+}
+
+.card-author {
+  position: absolute;
+  width: 60px;
+  height: 16px;
+  left: 20px;
+  top: 214px;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 16px;
+  color: #000000;
+}
+
+.card-date {
+  position: absolute;
+  width: 75px;
+  height: 16px;
+  left: 108px;
+  top: 214px;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 16px;
+  color: $grey;
+}
+
+.card-comments {
+  position: absolute;
+  width: 16px; 
+  height: 14px; 
+  left: 264px;
+  top: 215px;
+  font-size: 14px;
+  line-height: 14px;
+  color: $blue;
 }
