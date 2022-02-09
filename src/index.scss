@@ -1,0 +1,303 @@
+body {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  z-index: 1;
+  position: relative;
+  margin: auto;
+  width: 1440px;
+  height: 900px;
+  background: #8d95a3;
+}
+
+.header {
+  position: absolute;
+  width: 1440px;
+  height: 60px;
+  left: 0px;
+  top: 0px;
+  background: #0057b3;
+}
+
+.header-title {
+  position: absolute;
+  width: 90px;
+  height: 28px;
+  left: 120px;
+  top: 16px;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 28px;
+  color: #fbfcfd;
+}
+
+.block-l {
+  position: absolute;
+  width: 1200px;
+  height: 250px;
+  left: 120px;
+  top: 100px;
+  background: #fbfcfd;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.block-m {
+  position: absolute;
+  width: 1200px;
+  height: 146px;
+  left: 120px;
+  top: 405px;
+  background: #fbfcfd;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.glad-you-liked-it {
+  /* Glad you Liked it! */
+  position: absolute;
+  width: 368px;
+  height: 21px;
+  left: 200px;
+  top: 440px;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 21px;
+  /* identical to box height */
+  color: #5d6167;
+}
+
+.jane-doe {
+  /* Jane Doe */
+  position: absolute;
+  width: 240px;
+  height: 16px;
+  left: 200px;
+  top: 490px;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 16px;
+  color: #000000;
+}
+
+.reply-date {
+  /* 01/01/2019 */
+  position: absolute;
+  width: 300px;
+  height: 16px;
+  left: 290px;
+  top: 490px;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 16px;
+  color: #8d95a3;
+}
+
+.reply-arrow {
+  /*  */
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  left: 148px;
+  top: 440px;
+  font-family: "Font Awesome 5 Pro";
+  font-size: 18px;
+  line-height: 18px;
+  /* identical to box height */
+  color: #097ae6;
+}
+
+.stars {
+  /*  */
+  position: absolute;
+  width: 408px;
+  height: 18px;
+  left: 200px;
+  top: 153px;
+  font-family: "Font Awesome 5 Pro";
+  font-size: 18px;
+  line-height: 18px;
+  /* identical to box height */
+  color: #fbcd33;
+}
+
+.so-good {
+  /* So gooood! */
+  position: absolute;
+  width: 368px;
+  height: 21px;
+  left: 200px;
+  top: 196px;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 21px;
+  /* identical to box height */
+  color: #5d6167;
+}
+
+.john-doe {
+  /* John Doe */
+  position: absolute;
+  width: 240px;
+  height: 16px;
+  left: 200px;
+  top: 314px;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 16px;
+  color: #000000;
+}
+
+.review-date {
+  /* 01/01/2019 */
+  position: absolute;
+  width: 300px;
+  height: 16px;
+  left: 290px;
+  top: 314px;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 16px;
+  color: #8d95a3;
+}
+
+.more-dots {
+  /*  */
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  left: 1274px;
+  top: 440px;
+  font-family: "Font Awesome 5 Pro";
+  font-size: 18px;
+  line-height: 18px;
+  /* identical to box height */
+  color: #0057b3;
+}
+
+.block-s {
+  position: absolute;
+  width: 300px;
+  height: 250px;
+  left: 120px;
+  top: 100px;
+  background: #fbfcfd;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.taco-johns {
+  /* Taco John’s */
+  position: absolute;
+  width: 126px;
+  height: 28px;
+  left: 140px;
+  top: 120px;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 28px;
+  color: #000000;
+}
+
+.taco-stars {
+  /*  */
+  position: absolute;
+  width: 102px;
+  height: 18px;
+  left: 140px;
+  top: 153px;
+  font-family: "Font Awesome 5 Pro";
+  font-size: 18px;
+  line-height: 18px;
+  /* identical to box height */
+  color: #fbcd33;
+}
+
+.tacos-good {
+  /* So gooood! */
+  position: absolute;
+  width: 92px;
+  height: 21px;
+  left: 140px;
+  top: 196px;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 21px;
+  /* identical to box height */
+  color: #5d6167;
+}
+
+.taco-doe {
+  /* John Doe */
+  position: absolute;
+  width: 60px;
+  height: 16px;
+  left: 140px;
+  top: 314px;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 16px;
+  color: #000000;
+}
+
+.taco-date {
+  /* 01/01/2019 */
+  position: absolute;
+  width: 75px;
+  height: 16px;
+  left: 228px;
+  top: 314px;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 16px;
+  color: #8d95a3;
+}
+
+.taco-comments-icon {
+  /*  */
+  position: absolute;
+  width: 16px;
+  height: 14px;
+  left: 384px;
+  top: 315px;
+  font-family: "Font Awesome 5 Pro";
+  font-size: 14px;
+  line-height: 14px;
+  /* identical to box height */
+  color: #0057b3;
+}
+
+.review-title {
+  position: absolute;
+  width: 504px;
+  height: 28px;
+  left: 200px;
+  top: 120px;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 28px;
+  color: #000000;
+}
