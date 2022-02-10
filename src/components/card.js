@@ -12,7 +12,7 @@ const Card = props => {
       <div className='card-text'>{text}</div>
       <div className='card-author'>{author}</div>
       <div className='card-date'>{date}</div>
-      <div className='card-comments fa fa-msg' />
+      <div className='comments-icon fa fa-msg' />
     </div>
   )
 }

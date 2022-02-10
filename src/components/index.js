@@ -6,30 +6,130 @@ import Reply from './reply'
 const App = () => {
   return (
     <div className='container'>
+      <Header title='Reviews' />
 
-      <Header title="reviewsdot com" />
+      <div className='cards-container'>
+        <Card
+          title='Little Caesars'
+          stars='3'
+          text='meh'
+          author='Winston'
+          date='01/01/2019'
+        />
+        <Card
+          title='Little Caesars'
+          stars='3'
+          text='meh'
+          author='Winston'
+          date='01/01/2019'
+        />
+        <Card
+          title='Little Caesars'
+          stars='3'
+          text='meh'
+          author='Winston'
+          date='01/01/2019'
+        />
+        <Card
+          title='Little Caesars'
+          stars='3'
+          text='meh'
+          author='Winston'
+          date='01/01/2019'
+        />
+        <Card
+          title='Little Caesars'
+          stars='3'
+          text='meh'
+          author='Winston'
+          date='01/01/2019'
+        />
+        <Card
+          title='Little Caesars'
+          stars='3'
+          text='meh'
+          author='Winston'
+          date='01/01/2019'
+        />
+        <Card
+          title='Little Caesars'
+          stars='3'
+          text='meh'
+          author='Winston'
+          date='01/01/2019'
+        />
+        <Card
+          title='Little Caesars'
+          stars='3'
+          text='meh'
+          author='Winston'
+          date='01/01/2019'
+        />
+        <Card
+          title='Little Caesars'
+          stars='3'
+          text='meh'
+          author='Winston'
+          date='01/01/2019'
+        />
+        <Card
+          title='Little Caesars'
+          stars='3'
+          text='meh'
+          author='Winston'
+          date='01/01/2019'
+        />
+        <Card
+          title='Little Caesars'
+          stars='3'
+          text='meh'
+          author='Winston'
+          date='01/01/2019'
+        />
+        <Card
+          title='Little Caesars'
+          stars='3'
+          text='meh'
+          author='Winston'
+          date='01/01/2019'
+        />
+        <Card
+          title='Little Caesars'
+          stars='3'
+          text='meh'
+          author='Winston'
+          date='01/01/2019'
+        />
+        <Card
+          title='Little Caesars'
+          stars='3'
+          text='meh'
+          author='Winston'
+          date='01/01/2019'
+        />
+        <Card
+          title='Little Caesars'
+          stars='3'
+          text='meh'
+          author='Winston'
+          date='01/01/2019'
+        />
+      </div>
 
-      <Review
-        title='tACO TRUCK'
-        stars='5'
-        text='ITs SOOO GOOd'
-        author='john Doe'
-        date='04/17/1998'
-      />
-
-      <Reply
-        text='gld U LIKE it'
-        author='taco laduy'
-        date='04/17/1944'
-      />
-
-      <Card
-        title='taco bell'
-        stars='3'
-        text='its okay'
-        author='john awayne'
-        date='01/02/2003'
-      />
+      <div className='review-container'>
+        <Review
+          title='Taco John' s
+          stars='5'
+          text='So gooood!'
+          author='john Doe'
+          date='01/01/2019'
+        />
+        <Reply
+          text='Glad you Liked it!'
+          author='Jane Doe'
+          date='01/01/2019'
+        />
+      </div>
 
     </div>
   )
