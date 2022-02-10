@@ -1,6 +1,5 @@
 /* globals */
 
-
 @import './fonts.scss';
 @import './icons.scss';
 
@@ -12,32 +11,74 @@ $blue: #0057b3;
 $ltblue: #097ae6;
 $shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 
+html, body, body * {
+  box-sizing: border-box;
+  ::-webkit-scrollbar {
+    display: none;
+  }
+}
+
 body {
   margin: 0;
-  box-sizing: border-box;
   font-family: "Roboto";
   font-style: normal;
   background: $off-white;
+  height: 100vh;
+  overflow: hidden;
 }
 
-
 /* top-level containers */
+
+.container, .review-container, .cards-container {
+  max-width: 1440px; 
+  max-height: 900px; 
+  background: $grey;
+}
 
 .container {
   z-index: 1;
   position: relative;
   margin: auto;
-  
   width: 100vw;
   height: 100vh;
-  
-  max-width: 1440px; 
-  max-height: 900px; 
+}
 
-  background: $grey;
+.review-container {
+  z-index: 2;
+  position: absolute;
+  background: red;
+  visibility: hidden;
+}
+
+.cards-container {
+  z-index: 2;
+  position: absolute;
+  visibility: visible;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  width: calc(100% - 240px);
+  margin-left: 120px;
+  margin-right: 120px;
+  z-index: 1;
+  position: relative;
+
+  /* smallest value that works 
+     - (Chrome 98.0.4758.9 dev, Mac OS X 11.6.0)
+     - TODO better method for this
+     - and/or swtch out with grid instead 
+  */
+  border: 0.0000000001px solid transparent;
+  
+  display: flex; 
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  flex-basis: 10%;
+
 }
 
 .header {
+  z-index: 3;
   position: absolute;
   width: 100%;
   height: 60px;
@@ -46,8 +87,7 @@ body {
   background: $blue;
 }
 
-
-/* containers */
+/* inner containers */
 
 .review, .reply, .card {
   background: $off-white;
@@ -71,15 +111,17 @@ body {
 }
 
 .card {
-  position: absolute;
+  position: relative; 
   width: 300px;
   height: 250px;
-  left: 120px; 
-  /* top: 100px; */
-  bottom: 0; /* temp */
+  overflow: hidden;
+  margin-top: 100px; 
+  /* 150 lr margin*/
+  &:nth-last-child(-n+3) {
+    /* background: red; */
+    margin-bottom: 100px;
+  }
 }
-
-
 
 /* titles */
 
@@ -109,7 +151,6 @@ body {
   color: $black;
 }
 
-
 /* text */
 
 .review-text, .reply-text, .card-text {
@@ -134,7 +175,6 @@ body {
   top: 96px;
 }
 
-
 /* dates */
 
 .review-date, .reply-date, .card-date {
@@ -158,7 +198,6 @@ body {
   left: 108px;
   top: 214px;
 }
-
 
 /* authors */
 
@@ -185,8 +224,6 @@ body {
   top: 214px;
 }
 
-
-
 /* stars */
 
 .review-stars, .card-stars {
@@ -204,7 +241,6 @@ body {
 .card-stars {
   left: 20px;
 }
-
 
 /* icons */
 
