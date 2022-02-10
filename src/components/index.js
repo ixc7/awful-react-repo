@@ -1,6 +1,6 @@
 import Header from './header'
 import Review from './review'
-import Card from './card'
+import CardSection from './cardSection'
 import Reply from './reply'
 
 const App = () => {
@@ -8,113 +8,7 @@ const App = () => {
     <div className='container'>
       <Header title='Reviews' />
 
-      <div className='cards-container'>
-        <Card
-          title='Little Caesars'
-          stars='3'
-          text='meh'
-          author='Winston'
-          date='01/01/2019'
-        />
-        <Card
-          title='Little Caesars'
-          stars='3'
-          text='meh'
-          author='Winston'
-          date='01/01/2019'
-        />
-        <Card
-          title='Little Caesars'
-          stars='3'
-          text='meh'
-          author='Winston'
-          date='01/01/2019'
-        />
-        <Card
-          title='Little Caesars'
-          stars='3'
-          text='meh'
-          author='Winston'
-          date='01/01/2019'
-        />
-        <Card
-          title='Little Caesars'
-          stars='3'
-          text='meh'
-          author='Winston'
-          date='01/01/2019'
-        />
-        <Card
-          title='Little Caesars'
-          stars='3'
-          text='meh'
-          author='Winston'
-          date='01/01/2019'
-        />
-        <Card
-          title='Little Caesars'
-          stars='3'
-          text='meh'
-          author='Winston'
-          date='01/01/2019'
-        />
-        <Card
-          title='Little Caesars'
-          stars='3'
-          text='meh'
-          author='Winston'
-          date='01/01/2019'
-        />
-        <Card
-          title='Little Caesars'
-          stars='3'
-          text='meh'
-          author='Winston'
-          date='01/01/2019'
-        />
-        <Card
-          title='Little Caesars'
-          stars='3'
-          text='meh'
-          author='Winston'
-          date='01/01/2019'
-        />
-        <Card
-          title='Little Caesars'
-          stars='3'
-          text='meh'
-          author='Winston'
-          date='01/01/2019'
-        />
-        <Card
-          title='Little Caesars'
-          stars='3'
-          text='meh'
-          author='Winston'
-          date='01/01/2019'
-        />
-        <Card
-          title='Little Caesars'
-          stars='3'
-          text='meh'
-          author='Winston'
-          date='01/01/2019'
-        />
-        <Card
-          title='Little Caesars'
-          stars='3'
-          text='meh'
-          author='Winston'
-          date='01/01/2019'
-        />
-        <Card
-          title='Little Caesars'
-          stars='3'
-          text='meh'
-          author='Winston'
-          date='01/01/2019'
-        />
-      </div>
+      <CardSection />
 
       <div className='review-container'>
         <Review
