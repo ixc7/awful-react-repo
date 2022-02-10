@@ -1,12 +1,15 @@
 /* globals */
 
+
 @import './fonts.scss';
 @import './icons.scss';
 
 $off-white: #fbfcfd;
+$black: #000000;
 $grey: #8d95a3;
 $ltgrey: #5d6167;
 $blue: #0057b3;
+$ltblue: #097ae6;
 $shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 
 body {
@@ -16,6 +19,9 @@ body {
   font-style: normal;
   background: $off-white;
 }
+
+
+/* top-level containers */
 
 .container {
   z-index: 1;
@@ -31,10 +37,6 @@ body {
   background: $grey;
 }
 
-
-
-/* containers */
-
 .header {
   position: absolute;
   width: 100%;
@@ -43,6 +45,9 @@ body {
   top: 0px;
   background: $blue;
 }
+
+
+/* containers */
 
 .review, .reply, .card {
   background: $off-white;
@@ -79,143 +84,103 @@ body {
 /* titles */
 
 .header-title, .review-title, .card-title {
+  position: absolute;
   font-weight: bold;
   font-size: 24px;
   line-height: 28px;
-
+  width: 100%;
 }
 
 .header-title {
-  position: absolute;
-  width: 90px;
-  height: 28px;
   left: 120px;
   top: 16px;
   color: $off-white;
 }
 
 .review-title {
-  position: absolute; 
-  width: 504px;
-  height: 28px;
   left: 80px;
   top: 20px;
-  color: #000000;
+  color: $black;
 }
 
 .card-title {
-  position: absolute;
   left: 20px;
   top: 20px;
-  color: #000000;
+  color: $black;
 }
-
 
 
 /* text */
 
-.review-text {
+.review-text, .reply-text, .card-text {
   position: absolute;
-  width: 368px;
-  height: 21px;
-  left: 80px;
-  top: 96px;
-  font-weight: normal;
   font-size: 18px;
   line-height: 21px;
   color: $ltgrey;
+}
+
+.review-text {
+  left: 80px; 
+  top: 96px;
 }
 
 .reply-text {
-  position: absolute;
-  width: 368px;
-  height: 21px;
   left: 80px;
   top: 35px;
-  font-weight: normal;
-  font-size: 18px;
-  line-height: 21px;
-  color: $ltgrey;
 }
 
 .card-text {
-  position: absolute;
   left: 20px;
   top: 96px;
-  font-weight: normal;
-  font-size: 18px;
-  line-height: 21px;
-  color: $ltgrey;
 }
-
 
 
 /* dates */
-.review-date {
-  position: absolute;
-  width: 300px;
-  height: 16px;
-  left: 170px;
-  top: 214px;
-  font-weight: normal;
+
+.review-date, .reply-date, .card-date {
+  position: absolute;  
   font-size: 14px;
   line-height: 16px;
   color: $grey;
+}
+
+.review-date {
+  left: 170px;
+  top: 214px;
 }
 
 .reply-date {
-  position: absolute;
-  width: 300px;
-  height: 16px;
   left: 170px;
   top: 85px;
-  font-weight: normal;
-  font-size: 14px;
-  line-height: 16px;
-  color: $grey;
 }
 
 .card-date {
-  position: absolute;
-  width: 75px;
-  height: 16px;
   left: 108px;
   top: 214px;
-  font-weight: normal;
-  font-size: 14px;
-  line-height: 16px;
-  color: $grey;
 }
 
 
+/* authors */
+
 .review-author, .reply-author, .card-author {
+  position: absolute;
   font-weight: normal;
   font-size: 14px;
   line-height: 16px;
-  color: #000000;
+  color: $black;
 }
 
 .review-author {
-  position: absolute;
-  width: 240px;
-  height: 16px;
   left: 80px;
   top: 214px;
 }
 
 .reply-author {
-  position: absolute;
-  width: 240px;
-  height: 16px;
   left: 80px;
   top: 85px;
-  color: #000000;
 }
 
 .card-author {
-  position: absolute;
-  /* width: 60px; */
-  /* height: 16px; */
   left: 20px;
   top: 214px;
 }
@@ -224,59 +189,49 @@ body {
 
 /* stars */
 
-.review-stars {
+.review-stars, .card-stars {
   position: absolute;
-  width: 408px;
-  height: 18px;
-  left: 80px;
   top: 53px;
   font-size: 18px;
   line-height: 18px;
   color: #fbcd33;
+}
+
+.review-stars {
+  left: 80px;
 }
 
 .card-stars {
-  position: absolute;
   left: 20px;
-  top: 53px;
-  font-size: 18px;
-  line-height: 18px;
-  color: #fbcd33;
 }
-
 
 
 /* icons */
 
-.reply-icon {
+.reply-icon, .comments-icon, .dots-icon {
   position: absolute;
-  width: 18px;
-  height: 18px;
+}
+
+.reply-icon {
   left: 28px;
   top: 35px;
   font-size: 18px;
   line-height: 18px;
-  color: #097ae6;
+  color: $ltblue; 
 }
 
 .comments-icon {
-  position: absolute;
-  width: 16px; 
-  height: 14px; 
   left: 264px;
   top: 215px;
   font-size: 14px;
   line-height: 14px;
-  color: $blue;
+  color: $blue; 
 }
 
 .dots-icon {
-  position: absolute;
-  width: 18px;
-  height: 18px;
   left: 1154px;
   top: 35px;
   font-size: 18px;
   line-height: 18px;
-  color: $blue;
+  color: $blue; 
 }
