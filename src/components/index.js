@@ -1,42 +1,94 @@
-import {
-  Star,
-  Dots,
-  Msg,
-  Reply
-} from './icons.js' 
+
+const Stars = props => {
+  const result = []
+  for (let i = 0; i < props.count; i += 1) {
+    result.push(
+      <i className='fa fa-star' key={i} />
+    )
+  }
+  return result
+}
+
+const Review = props => {
+  const { title, stars, text, author, date } = props
+  return (
+
+    <div className='review'>
+      <div className='review-title'>{title}</div>
+
+      <div className='review-stars'>
+        <Stars count={stars} />
+      </div>
+
+      <div className='review-text'>{text}</div>
+      <div className='review-author'>{author}</div>
+      <div className='review-date'>{date}</div>
+    </div>
+  )
+}
+
+const Reply = props => {
+  const { text, author, date } = props
+
+  return (
+    <div className='reply'>
+      <div className='dots fa fa-dots' />
+      <div className='glad-you-liked-it'>{text}</div>
+      <div className='jane-doe'>{author}</div>
+      <div className='reply-date'>{date}</div>
+      <div className='reply-arrow fa fa-reply' />
+    </div>
+  )
+}
+
+const Card = props => {
+  const { title, stars, text, author, date } = props
+
+  return (
+    <div className='card'>
+      <div className='card-title'>{title}</div>
+      <div className='card-stars'>
+        <Stars count={stars} />
+      </div>
+      <div className='card-text'>{text}</div>
+      <div className='card-author'>{author}</div>
+      <div className='card-date'>{date}</div>
+      <div className='card-comments fa fa-msg' />
+    </div>
+  )
+}
 
 const App = () => {
   return (
-    <>
-      <div className="container">
-        <header className="header"></header>
-        <div className="header-title">ReVIEWS</div>
+    <div className='container'>
 
-        <div className="block-l"></div>
-        <div className="review-title">TACO RESTAURNT</div>
-        <div className="stars"><Star /><Star /><Star /><Star /><Star /></div>
-        <div className="so-good">IT SO GOOD</div>
-        <div className="john-doe">JOHN dOE</div>
-        <div className="review-date">99/99/2000</div>
+      <header className='header'>
+        <div className='header-title'>ReVIEWS</div>
+      </header>
 
-        <div className="block-m"></div>
-        <div className="more-dots"><Dots /></div>
-        <div className="glad-you-liked-it">GLAD U LIKE IT</div>
-        <div className="jane-doe">JANE Doe</div>
-        <div className="reply-date">01/02/1999</div>
-        <div className="reply-arrow"><Reply /></div>
-      </div>
+      <Review
+        title='tACO TRUCK'
+        stars='5'
+        text='ITs SOOO GOOd'
+        author='john Doe'
+        date='04/17/1998'
+      />
 
-      <div className="container">
-        <div className="block-s"></div>
-        <div className="taco-johns">tacobell</div>
-        <div className="taco-stars"><Star /><Star /></div>
-        <div className="tacos-good">they are not good</div>
-        <div className="taco-doe">person</div>
-        <div className="taco-date">01/00/0000</div>
-        <div className="taco-comments-icon"><Msg /></div>
-      </div>
-    </>
+      <Reply
+        text='gld U LIKE it'
+        author='taco laduy'
+        date='04/17/1944'
+      />
+
+      <Card
+        title='taco bell'
+        stars='3'
+        text='its okay'
+        author='john awayne'
+        date='01/02/2003'
+      />
+
+    </div>
   )
 }
 
