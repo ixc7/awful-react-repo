@@ -3,11 +3,10 @@ import Stars from './stars'
 const Review = props => {
   const { title, stars, text, author, date } = props
   return (
-
     <div className='review'>
       <div className='review-title'>{title}</div>
-      <div className='review-stars' onClick={() => console.log(stars)}>
-        <Stars count={stars}/>
+      <div className='review-stars'>
+        <Stars count={stars} />
       </div>
       <div className='review-text'>{text}</div>
       <div className='review-author-date-row'>

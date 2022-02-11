@@ -53,8 +53,8 @@ body {
   height: 100%;
   overflow-x: hidden;
   overflow-y: scroll;
-  /* visibility: visible; */
-  visibility: hidden; 
+  visibility: visible; 
+  /* visibility: hidden; */
 }
 
 .cards-container {
@@ -138,6 +138,9 @@ body {
   font-weight: bold;
   font-size: 24px;
   line-height: 28px;
+  /* height: 28px; */
+  /* overflow: hidden; */
+  cursor: pointer;
 }
 
 .header-title {
@@ -153,7 +156,6 @@ body {
 .card-title {
   margin: 20px 20px 5px 20px;
   color: $black;
-  cursor: pointer;
 }
 
 /* text */
@@ -163,7 +165,9 @@ body {
   font-size: 18px;
   line-height: 21px;
   color: $ltgrey;
-  overflow: hidden;
+  
+  /* don't really need this if we're truncating EVERYTHING */
+  overflow: hidden; 
 }
 
 .review-text {
@@ -253,15 +257,17 @@ body {
 }
 
 .comments-icon {
-  left: 264px;
-  top: 215px;
+  /* left: 264px; */
+  /* top: 215px; */
+  bottom: 21px;
+  right: 20px;
   font-size: 14px;
   line-height: 14px;
   color: $blue; 
 }
 
 .dots-icon {
-  left: 1154px;
+  right: 35px;
   top: 35px;
   font-size: 18px;
   line-height: 18px;
