@@ -9,9 +9,14 @@ const Card = props => {
       <div className='card-stars'>
         <Stars count={stars} />
       </div>
+      
       <div className='card-text'>{text}</div>
-      <div className='card-author'>{author}</div>
-      <div className='card-date'>{date}</div>
+
+      <div className="card-author-date-row">
+        <div className='card-author'>{author}</div>
+        <div className='card-date'>{date}</div>
+      </div>
+      
       <div className='comments-icon fa fa-msg' />
     </div>
   )

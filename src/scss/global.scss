@@ -51,8 +51,10 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  visibility: visible; 
-  /* visibility: hidden; */
+  overflow-x: hidden;
+  overflow-y: scroll;
+  /* visibility: visible; */
+  visibility: hidden; 
 }
 
 .cards-container {
@@ -68,9 +70,9 @@ body {
   z-index: 1;
   position: relative;
 
-  /* smallest value that works 
+  /* TODO find cleaner way to do this
+     - smallest value that works 
      - (Chrome 98.0.4758.9 dev, Mac OS X 11.6.0)
-     - TODO better method for this
      - and/or swtch out with grid instead 
   */
   border: 0.0000000001px solid transparent;
@@ -108,9 +110,10 @@ body {
 }
 
 .reply {
-  width: calc(100% - 240px);
+  width: calc(100% - 240px); 
   min-height: 146px;
   margin: 0px 120px;
+  margin-bottom: 100px;
 }
 
 .card {
@@ -118,11 +121,12 @@ body {
   height: 250px;
   overflow: hidden;
   margin-top: 100px; 
-  /* 150 lr margin*/
+  
+  /* TODO find cleaner way to do this
+     - &:nth-last-child(-n+3) {} 
+     - &:last-child {}
+  */
   &:last-child {
-  /* TODO probably cleaner way to do this.*/
-  /* &:nth-last-child(-n+3) { */
-    /* background: red; */
     margin-bottom: 100px;
   }
 }
@@ -149,6 +153,7 @@ body {
 .card-title {
   margin: 20px 20px 5px 20px;
   color: $black;
+  cursor: pointer;
 }
 
 /* text */
@@ -166,12 +171,14 @@ body {
 }
 
 .reply-text {
-  padding: 35px 80px; 
+  min-height: 107px;
+  padding: 35px 0px;
+  margin: 0px 80px;
 }
 
 .card-text {
   margin: 20px;
-  height: calc(100% - 146px); 
+  max-height: calc(100% - 146px); 
 }
 
 /* dates */
@@ -197,16 +204,16 @@ body {
 }
 
 .reply-author-date-row {
-  position: absolute;
-  left: 80px;
-  bottom: 20px;
+  position: relative;
+  margin-left: 80px;
+  margin-right: 80px;
+  padding-bottom: 20px; 
 }
 
 .review-author-date-row {
   position: relative;
   margin-left: 80px;
-  padding-bottom: 20px;
-  /* bottom: 20px; */
+  padding-bottom: 20px; 
 }
 
 .card-author-date-row {

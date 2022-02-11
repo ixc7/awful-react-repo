@@ -10,8 +10,10 @@ const Review = props => {
         <Stars count={stars}/>
       </div>
       <div className='review-text'>{text}</div>
-      <div className='review-author'>{author}</div>
-      <div className='review-date'>{date}</div>
+      <div className='review-author-date-row'>
+        <div className='review-author'>{author}</div>
+        <div className='review-date'>{date}</div>
+      </div>
     </div>
   )
 }
