@@ -3,15 +3,15 @@
 @import './fonts.scss';
 @import './icons.scss';
 
-$off-white: #fbfcfd;
-$black: #000000;
-$grey: #8d95a3;
-$ltgrey: #5d6167;
-$blue: #0057b3;
-$ltblue: #097ae6;
-$shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+$off-white: #fbfcfd; 
+$black: #000000; 
+$grey: #8d95a3; 
+$ltgrey: #5d6167; 
+$blue: #0057b3; 
+$ltblue: #097ae6; 
+$shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); 
 
-html, body, body * {
+html, body, * {
   box-sizing: border-box;
   ::-webkit-scrollbar {
     display: none;
@@ -51,7 +51,8 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  visibility: hidden; 
+  visibility: visible; 
+  /* visibility: hidden; */
 }
 
 .cards-container {
@@ -83,40 +84,36 @@ body {
 }
 
 .header {
-  z-index: 3;
+  z-index: 4;
   position: absolute;
   width: 100%;
   height: 60px;
-  left: 0px;
   top: 0px;
+  left: 0px;
   background: $blue;
 }
 
 /* inner containers */
 
 .review, .reply, .card {
+  position: relative;
   background: $off-white;
   box-shadow: $shadow;
 }
 
 .review {
-  position: absolute;
-  width: 1200px;
-  height: 250px;
-  left: 120px;
-  top: 100px;
+  width: calc(100% - 240px);
+  min-height: 250px;
+  margin: 100px 120px 55px 120px;
 }
 
 .reply {
-  position: absolute;
-  width: 1200px;
-  height: 146px;
-  left: 120px;
-  top: 405px; 
+  width: calc(100% - 240px);
+  min-height: 146px;
+  margin: 0px 120px;
 }
 
 .card {
-  position: relative; 
   width: 300px;
   height: 250px;
   overflow: hidden;
@@ -133,36 +130,31 @@ body {
 /* titles */
 
 .header-title, .review-title, .card-title {
-  position: absolute;
+  position: relative; 
   font-weight: bold;
   font-size: 24px;
   line-height: 28px;
-  width: 100%;
 }
 
 .header-title {
-  left: 120px;
-  top: 16px;
+  margin: 16px 120px;
   color: $off-white;
 }
 
 .review-title {
-  left: 80px;
-  top: 20px;
+  padding: 20px 80px 5px 80px; 
   color: $black;
 }
 
 .card-title {
-  left: 20px;
-  top: 20px;
+  margin: 20px 20px 5px 20px;
   color: $black;
 }
 
 /* text */
 
 .review-text, .reply-text, .card-text {
-  position: absolute; 
-  /* position: relative; */
+  position: relative; 
   font-size: 18px;
   line-height: 21px;
   color: $ltgrey;
@@ -170,87 +162,73 @@ body {
 }
 
 .review-text {
-  left: 80px; 
-  top: 96px;
+  margin: 25px 80px 20px 80px; 
 }
 
 .reply-text {
-  left: 80px; 
-  top: 35px;
+  padding: 35px 80px; 
 }
 
 .card-text {
-  margin-left: 20px;
-  margin-right: 20px;
-  max-height: calc(100% - 146px);
-  top: 96px; 
+  margin: 20px;
+  height: calc(100% - 146px); 
 }
 
 /* dates */
 
 .review-date, .reply-date, .card-date {
-  position: absolute;  
+  position: relative;
+  display: inline-block;
   font-size: 14px;
   line-height: 16px;
   color: $grey;
 }
 
-.review-date {
-  left: 170px;
-  top: 214px;
-}
-
-.reply-date {
-  left: 170px;
-  top: 85px;
-}
-
-.card-date {
-  left: 108px;
-  top: 214px;
-}
-
 /* authors */
 
 .review-author, .reply-author, .card-author {
-  position: absolute;
+  position: relative;
+  display: inline-block;
+  margin-right: 28px;
   font-weight: normal;
   font-size: 14px;
   line-height: 16px;
   color: $black;
 }
 
-.review-author {
+.reply-author-date-row {
+  position: absolute;
   left: 80px;
-  top: 214px;
+  bottom: 20px;
 }
 
-.reply-author {
-  left: 80px;
-  top: 85px;
+.review-author-date-row {
+  position: relative;
+  margin-left: 80px;
+  padding-bottom: 20px;
+  /* bottom: 20px; */
 }
 
-.card-author {
-  left: 20px;
-  top: 214px;
+.card-author-date-row {
+  position: relative;
+  margin-left: 20px; 
 }
 
 /* stars */
 
 .review-stars, .card-stars {
-  position: absolute;
-  top: 53px;
+  position: relative;
   font-size: 18px;
   line-height: 18px;
   color: #fbcd33;
 }
 
 .review-stars {
-  left: 80px;
+  margin-left: 80px; 
 }
 
 .card-stars {
-  left: 20px;
+  margin-left: 20px;
 }
 
 /* icons */
