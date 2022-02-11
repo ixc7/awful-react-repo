@@ -12,7 +12,7 @@ const App = () => {
 
       <div className='review-container'>
         <Review
-          title='Taco John' s
+          title="Taco John's"
           stars='5'
           text='So gooood!'
           author='john Doe'

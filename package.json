@@ -9,10 +9,13 @@
     "sass": "^1.49.7"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "stop": "killall node",
+    "start": "cleanup () { printf \"\\x1b[?25h\" ; } && trap cleanup EXIT && printf \"\\x1Bc\\x1b[3J\\x1b[?25l\" && react-scripts start > /dev/null 2>&1 & pnpm run dev",
+    "dev": "${EDITOR} src/components/* src/scss/*",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "lint": "standard --fix"
   },
   "eslintConfig": {
     "extends": [
@@ -31,5 +34,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "standard": "^16.0.4"
   }
 }
