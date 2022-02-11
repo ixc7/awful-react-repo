@@ -61,6 +61,7 @@ body {
   overflow-x: hidden;
   overflow-y: scroll;
   width: calc(100% - 240px);
+  height: 100%;
   margin-left: 120px;
   margin-right: 120px;
   z-index: 1;
@@ -160,13 +161,12 @@ body {
 /* text */
 
 .review-text, .reply-text, .card-text {
-  position: absolute;
+  position: absolute; 
+  /* position: relative; */
   font-size: 18px;
   line-height: 21px;
   color: $ltgrey;
-  background: pink;
-  width: calc(100% - 20px);
-  overflow: scroll;
+  overflow: hidden;
 }
 
 .review-text {
@@ -175,13 +175,15 @@ body {
 }
 
 .reply-text {
-  left: 80px;
+  left: 80px; 
   top: 35px;
 }
 
 .card-text {
-  left: 20px;
-  top: 96px;
+  margin-left: 20px;
+  margin-right: 20px;
+  max-height: calc(100% - 146px);
+  top: 96px; 
 }
 
 /* dates */

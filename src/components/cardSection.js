@@ -1,6 +1,11 @@
 import Card from './card'
 import data from '../static/data.json'
 
+const formatDate = str => {
+  const date = new Date(str)
+  return `${date.getMonth() + 1}/${date.getDate()}/${date.getFullYear()}`
+}
+
 const AllCards = props => {
   const cards = data.map((item, index) => {
     const {author, place, published_at, rating, content, id} = item
@@ -10,7 +15,7 @@ const AllCards = props => {
         stars={rating}
         text={content}
         author={author}
-        date={published_at}
+        date={formatDate(published_at)}
         key={id}
       />
     )
