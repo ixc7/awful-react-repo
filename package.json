@@ -2,7 +2,8 @@
   "name": "project",
   "version": "0.0.0",
   "scripts": {
-    "dev": "vite",
+    "start": "(kill $(pgrep node); vite) > /dev/null 2>&1 & printf \"\\x1b[3A\\x1b[Jserver running\n\"",
+    "stop": "kill $(pgrep node) > /dev/null 2>&1 & printf \"\\x1b[3A\\x1b[Jserver stopped\n\"",
     "build": "vite build",
     "preview": "vite preview"
   },
