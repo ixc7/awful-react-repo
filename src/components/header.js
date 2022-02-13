@@ -2,10 +2,10 @@ import React from 'react'
 
 const Header = ({ title }) => {
   return (
-    <header className='header'>
       <div className='header-title'>{title}</div>
-    </header>
   )
 }
+    // <header className='header'>
+    // </header>
 
 export default Header

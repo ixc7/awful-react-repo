@@ -13,6 +13,6 @@ const formatDate = str => {
   )}`
 }
 
-const truncate = (str, limit = 100) => str.slice(0, limit)
+const truncate = (str, limit = 100, suffix = '') => str.slice(0, limit) + suffix
 
 export { truncate, formatDate, STRESSTXT }

@@ -7,12 +7,12 @@ import { STRESSTXT, truncate } from './utils'
 import '../scss/global.scss'
 
 const App = () => {
-  const [view, setView] = useState({ cards: 'visible', review: 'hidden' })
+  const [view, setView] = useState({ cards: 'hidden', review: 'visible' })
   const toggle = v => (view[v] === 'hidden' ? 'visible' : 'hidden')
 
   return (
     <div className='container'>
-      <div onClick={() => {
+      <div className='header' onClick={() => {
         setView({ cards: toggle('cards'), review: toggle('review') })
       }}
       >

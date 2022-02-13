@@ -10,7 +10,7 @@ const AllCards = () => {
       <Card
         title={truncate(place, 18)}
         stars={rating}
-        text={content}
+        text={truncate(content, 140, '...')}
         author={truncate(author, 18)}
         date={formatDate(published_at)}
         key={id}
