@@ -1,12 +1,10 @@
-
-const Stars = props => {
+const Stars = ({count}) => {
   const result = []
-  const count = props.count > 5 ? 5 : props.count
-  for (let i = 0; i < count; i += 1) {
-    result.push(
-      <i className='fa fa-star' key={i} />
-    )
-  }
+  const total = count > 5 ? 5 : count
+  
+  for (let i = 0; i < total; i += 1) 
+    result.push(<i className='fa fa-star' key={i} />)
+
   return result
 }
 

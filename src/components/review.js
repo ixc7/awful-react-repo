@@ -1,7 +1,6 @@
 import Stars from './stars'
 
-const Review = props => {
-  const { title, stars, text, author, date } = props
+const Review = ({title, stars, text, author, date}) => {
   return (
     <div className='review'>
       <div className='review-title'>{title}</div>

@@ -1,5 +1,4 @@
-const Header = props => {
-  const { title } = props
+const Header = ({ title }) => {
   return (
     <header className='header'>
       <div className='header-title'>{title}</div>

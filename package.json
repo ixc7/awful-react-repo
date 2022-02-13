@@ -59,7 +59,6 @@
     "stop": "killall node",
     "editor": "pnpm run start && ${EDITOR} src/components/* src/scss/*",
     "build": "node scripts/build.js",
-    "test": "node scripts/test.js",
     "lint": "standard --fix"
   },
   "eslintConfig": {

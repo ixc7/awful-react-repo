@@ -1,8 +1,6 @@
 import Stars from './stars'
 
-const Card = props => {
-  const { title, stars, text, author, date } = props
-
+const Card = ({title, stars, text, author, date}) => {
   return (
     <div className='card'>
       <div className='card-title'>{title}</div>

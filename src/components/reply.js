@@ -1,7 +1,4 @@
-
-const Reply = props => {
-  const { text, author, date } = props
-
+const Reply = ({text, author, date}) => {
   return (
     <div className='reply'>
       <div className='reply-text'>{text}</div>

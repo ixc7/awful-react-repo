@@ -1,38 +1,44 @@
 import { useState } from 'react'
-import Header from './header'
-import Review from './review'
-import CardSection from './cardSection'
-import Reply from './reply'
 import { STRESSTXT, truncate } from './utils'
+import Header from './header'
+import CardSection from './cardSection'
+import ReviewSection from './reviewSection'
 
 const App = () => {
-  const [state, toggleView] = useState({cards: true, review: false})
+  const [view, setView] = useState({cards: 'visible', review: 'hidden'})
+  const toggle = v => view[v] === 'hidden' ? 'visible' : 'hidden'
+
+  {/*
+    const [review, setReview] = useState({
+      title: truncate(STRESSTXT, 80),
+      stars: 5,
+      text: STRESSTXT,
+      author: truncate(STRESSTXT, 18),
+      date:  truncate(STRESSTXT, 10)
+    })
+    
+    const [reply, setReply] = useState({
+      text: STRESSTXT,
+      author: truncate(STRESSTXT, 18),
+      date:  truncate(STRESSTXT, 10)
+    })
+
+  */}  
 
   return (
     <div className='container'>
-      <div onClick={() => { toggleView({cards: !state.cards, review: !state.review }) }}>
+      <div onClick={() => {
+        setView({ cards: toggle('cards'), review: toggle('review') })
+      }}>
         <Header title='Reviews'/>
       </div>
 
-      <div className={state.cards ? 'visible' : 'hidden'}>
-        <CardSection />
+      <div className={view.review}>
+        <ReviewSection />
       </div>
 
-      <div className={state.review ? 'visible' : 'hidden'}>
-        <div className='review-container'>
-          <Review
-            title={truncate(STRESSTXT, 80)}
-            stars='5'
-            text={STRESSTXT}
-            author={truncate(STRESSTXT, 18)}
-            date='01/01/2019'
-          />
-          <Reply
-            text={STRESSTXT}
-            author={truncate(STRESSTXT, 18)}
-            date='01/01/2019'
-          />
-        </div>
+      <div className={view.cards}>
+        <CardSection />
       </div>
 
     </div>
