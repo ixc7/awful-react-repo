@@ -1,6 +1,7 @@
+import React from 'react'
 import Stars from './stars'
 
-const Review = ({title, stars, text, author, date}) => {
+const Review = ({ title, stars, text, author, date }) => {
   return (
     <div className='review'>
       <div className='review-title'>{title}</div>

@@ -1,3 +1,4 @@
+import React from 'react'
 import Card from './card'
 import data from '../static/data.json'
 import { STRESSTXT, truncate, formatDate } from './utils'
@@ -17,11 +18,7 @@ const AllCards = () => {
     )
   })
 
-  return (
-    <div className='cards-container'>
-      {cards}
-    </div>
-  )
+  return <div className='cards-container'>{cards}</div>
 }
 
 export default AllCards

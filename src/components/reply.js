@@ -1,4 +1,6 @@
-const Reply = ({text, author, date}) => {
+import React from 'react'
+
+const Reply = ({ text, author, date }) => {
   return (
     <div className='reply'>
       <div className='reply-text'>{text}</div>

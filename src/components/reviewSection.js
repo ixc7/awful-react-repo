@@ -1,7 +1,7 @@
+import React from 'react'
+import { STRESSTXT, truncate } from './utils'
 import Review from './review'
 import Reply from './reply'
-
-import { STRESSTXT, truncate } from './utils'
 
 const placeholder = {
   review: {
@@ -9,12 +9,12 @@ const placeholder = {
     stars: 5,
     text: STRESSTXT,
     author: truncate(STRESSTXT, 18),
-    date:  truncate(STRESSTXT, 10)
+    date: truncate(STRESSTXT, 10)
   },
   reply: {
     text: STRESSTXT,
     author: truncate(STRESSTXT, 18),
-    date:  truncate(STRESSTXT, 10)
+    date: truncate(STRESSTXT, 10)
   }
 }
 
@@ -30,11 +30,7 @@ const reviewSection = () => {
         author={review.author}
         date={review.date}
       />
-      <Reply
-        text={reply.text}
-        author={reply.author}
-        date={reply.date}
-      />
+      <Reply text={reply.text} author={reply.author} date={reply.date} />
     </div>
   )
 }
