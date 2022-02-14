@@ -9,7 +9,6 @@ const AllCards = () => (
       ({ author, place, published_at, rating, content, id }) => {
         return (
           <Card
-            emitter={x => console.log(`GOT: ${x}`)}
             place={truncate(place, 18)}
             rating={rating}
             content={truncate(content, 140, '...')}

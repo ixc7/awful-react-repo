@@ -3,24 +3,16 @@ import ReviewSection from './reviewSection'
 import CardSection from './cardSection'
 import '../scss/global.scss'
 
-import { STRESSTXT, truncate } from './utils'
-import data from '../static/data.json'
-const reply = {
-  text: STRESSTXT,
-  author: truncate(STRESSTXT, 18),
-  date: truncate(STRESSTXT, 10)
-}
-const review = data[0]
 
 export const Context = createContext()
 
 const App = () => {
-  const [id, setId] = useState(false)
-  const [view, setView] = useState({ cards: 'hidden', review: 'visible' })
+  const [id, setId] = useState('5d707203b65083001e956f0a')
+  const [view, setView] = useState({ cards: 'visible', review: 'hidden' })
   const toggle = v => (view[v] === 'hidden' ? 'visible' : 'hidden')
 
   return (
-    <Context.Provider value={id}>
+    <Context.Provider value={{id, setId}}>
       <div className='container'>
         <div
           className='header'
@@ -32,10 +24,7 @@ const App = () => {
         </div>
 
         <div className={view.review}>
-          <ReviewSection 
-            review={review}
-            reply={reply}
-          />
+          <ReviewSection id={id} />
         </div>
 
         <div className={view.cards}>
