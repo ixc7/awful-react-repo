@@ -8,8 +8,9 @@ const Input = () => {
   const { id } = useContext(Global)
   const { update } = useContext(Local)
   const [msg, setMsg] = useState('')
-  
-  const setReply = () => {
+
+  const setReply = e => {
+    e.preventDefault()
     if (msg.length) {
       localStorage.setItem(
         id,
@@ -19,17 +20,17 @@ const Input = () => {
           content: msg
         })
       )
+      update(id)
+      setMsg('')
     }
-    update(id)
-    setMsg('')
   }
 
   return (
     <div className={localStorage.getItem(id) ? 'hidden' : 'visible'}>
-      <textarea value={msg} onChange={e => setMsg(e.target.value)} />
-      <button onClick={setReply}>
-        <div className='reply-icon fa fa-reply' />
-      </button>
+      <form onSubmit={setReply}>
+        <input type='text' placeholder='Type your reply here' value={msg} onChange={e => setMsg(e.target.value)} />
+      </form>
+      <div className='reply-icon fa fa-reply' onClick={setReply}  />
     </div>
   )
 }
@@ -40,12 +41,11 @@ const Text = () => {
   const getField = field => JSON.parse(localStorage.getItem(id) || 0)[field]
 
   const remove = () => {
-    if (localStorage.getItem(id)) { 
       localStorage.removeItem(id)
+      // TODO manual render w/ localStorage get rid of this.
       update(Math.random())
-    }
   }
-  
+
   return (
     <div className={localStorage.getItem(id) ? 'visible' : 'hidden'}>
       <div className='reply-text'>{getField('content')}</div>
@@ -60,11 +60,10 @@ const Text = () => {
 }
 
 const Reply = () => {
-  const { id } = useContext(Global)
   const [current, update] = useState()
   
   return (
-    <Local.Provider value={{current, update}}>
+    <Local.Provider value={{ current, update }}>
       <div className='reply'>
         <Text />
         <Input />
