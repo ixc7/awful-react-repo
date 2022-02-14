@@ -1,12 +1,15 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { Context } from './index'
+import { truncate, formatDate } from './utils'
 import Card from './card'
 import data from '../static/data.json'
-import { truncate, formatDate } from './utils'
 
-const AllCards = () => (
-  <div className='cards-container'>
-    {data.map(
-      ({ author, place, published_at, rating, content, id }) => {
+const AllCards = () => {
+  const { view } = useContext(Context)
+
+  return (
+    <div className={`cards-container ${view.cards}`}>
+      {data.map(({ author, place, published_at, rating, content, id }) => {
         return (
           <Card
             place={truncate(place, 18)}
@@ -18,9 +21,9 @@ const AllCards = () => (
             key={id}
           />
         )
-      }
-    )}
-  </div>
-)
+      })}
+    </div>
+  )
+}
 
 export default AllCards

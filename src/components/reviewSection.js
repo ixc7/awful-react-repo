@@ -1,15 +1,17 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext } from 'react'
 import { Context } from './index'
 import Review from './review'
 import Reply from './reply'
 import data from '../static/data.json'
 
 const reviewSection = () => {
-  const { id } = useContext(Context)
-  const {place, rating, content, author, published_at} = data.filter(r => r.id === id)[0]
-  
+  const { id, view } = useContext(Context)
+
+  const { place, rating, content, author, published_at } =
+    data.filter(x => x.id === id)[0] || {}
+
   return (
-    <div className='review-container'>
+    <div className={`review-container ${view.review}`}>
       <Review
         place={place}
         rating={rating}
