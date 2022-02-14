@@ -8,7 +8,7 @@ const reviewSection = () => {
   const { id, view } = useContext(Context)
 
   const { place, rating, content, author, published_at } =
-    data.filter(x => x.id === id)[0] || {}
+    data.filter(x => x.id === id)[0] || false
 
   return (
     <div className={`review-container ${view.review}`}>
@@ -19,7 +19,7 @@ const reviewSection = () => {
         author={author}
         published_at={published_at}
       />
-      <Reply text={content} author={author} date={published_at} />
+      <Reply />
     </div>
   )
 }

@@ -9,7 +9,6 @@ export const Context = createContext()
 const App = () => {
   const [id, setId] = useState()
   const [view, setView] = useState({ cards: 'visible', review: 'hidden' })
-
   return (
     <Context.Provider value={{ id, setId, view, setView }}>
       <div className='container'>
