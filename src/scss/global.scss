@@ -9,13 +9,11 @@ $blue: #0057b3;
 $ltblue: #097ae6; 
 $shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); 
 
-.visible {
-  visibility: visible;
-}
-
 .hidden {
-  visibility: hidden;
-  display: none;
+  visibility: hidden; 
+  overflow: hidden;
+  pointer-events: none; 
+  height: 0; 
 }
 
 html, body * {
@@ -47,7 +45,7 @@ body {
   height: 100vh;
   width: 100vw; 
   max-height: 900px;
-  max-width: 1440px; 
+  max-width: 1440px;
   overflow-x: hidden;
   overflow-y: scroll; 
 }
@@ -71,7 +69,9 @@ body {
 
 .review-container {
   z-index: 2;
-  width: 100%; 
+  width: 100%;
+  height: 100%;
+  position: absolute; 
 }
 
 .header {
@@ -122,8 +122,7 @@ body {
   overflow: hidden;
   margin-top: 100px; 
   /* 
-    TODO
-    use something else
+    TODO change ...
   */
   &:last-child {
     margin-bottom: 100px;
@@ -228,13 +227,13 @@ body {
   margin-left: 20px;
 }
 
-.reply-icon, .comments-icon, .dots-icon {
+.comments-icon, .reply-icon, .dots-icon {
   position: absolute;
 }
 
 .reply-icon {
-  left: 28px;
-  top: 35px;
+  left: 28px; 
+  top: 35px; 
   font-size: 18px;
   line-height: 18px;
   color: $ltblue; 
@@ -249,9 +248,53 @@ body {
 }
 
 .dots-icon {
-  right: 35px;
-  top: 35px;
+  right: 0; 
+  top: 35px; 
+  height: calc(100% - 35px);
+  width: 50px; 
   font-size: 18px;
   line-height: 18px;
   color: $blue; 
+  &:hover {
+    .dot-options {
+      visibility: visible;
+    }
+  }
+}
+
+.dot-options {
+  position: absolute;
+  font-family: "Roboto";
+  color: $ltgrey;
+  font-weight: normal;
+  top: 18px;
+  right: 0px;
+  font-size: 18px;
+  line-height: 18px;
+  visibility: hidden;
+  padding: 12px 12px 12px 12px;
+  div:hover {
+    font-weight: bold;
+    color: $blue;
+  }
+}
+
+input[type=text] {
+  position: absolute;
+  font-family: "Roboto";
+  font-size: 18px;
+  line-height: 21px;
+  color: $ltgrey; 
+  background: $off-white;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: calc(100% - 56px);
+  padding: 0px 80px;
+  border: none;
+  resize: none;
+  outline: none;
+  &::placeholder {
+    color: $ltblue
+  }
 }
