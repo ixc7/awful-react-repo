@@ -1,24 +1,27 @@
 import React from 'react'
 import Card from './card'
 import data from '../static/data.json'
-import { STRESSTXT, truncate, formatDate } from './utils'
+import { truncate, formatDate } from './utils'
 
-const AllCards = () => {
-  const cards = data.map((item, index) => {
-    const { author, place, published_at, rating, content, id } = item
-    return (
-      <Card
-        title={truncate(place, 18)}
-        stars={rating}
-        text={truncate(content, 140, '...')}
-        author={truncate(author, 18)}
-        date={formatDate(published_at)}
-        key={id}
-      />
-    )
-  })
-
-  return <div className='cards-container'>{cards}</div>
-}
+const AllCards = () => (
+  <div className='cards-container'>
+    {data.map(
+      ({ author, place, published_at, rating, content, id }) => {
+        return (
+          <Card
+            emitter={x => console.log(`GOT: ${x}`)}
+            place={truncate(place, 18)}
+            rating={rating}
+            content={truncate(content, 140, '...')}
+            author={truncate(author, 18)}
+            published_at={formatDate(published_at)}
+            id={id}
+            key={id}
+          />
+        )
+      }
+    )}
+  </div>
+)
 
 export default AllCards

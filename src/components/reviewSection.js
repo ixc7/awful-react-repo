@@ -1,34 +1,16 @@
 import React from 'react'
-import { STRESSTXT, truncate } from './utils'
 import Review from './review'
 import Reply from './reply'
 
-const placeholder = {
-  review: {
-    title: truncate(STRESSTXT, 80),
-    stars: 5,
-    text: STRESSTXT,
-    author: truncate(STRESSTXT, 18),
-    date: truncate(STRESSTXT, 10)
-  },
-  reply: {
-    text: STRESSTXT,
-    author: truncate(STRESSTXT, 18),
-    date: truncate(STRESSTXT, 10)
-  }
-}
-
-const reviewSection = () => {
-  const { review, reply } = placeholder
-
+const reviewSection = ({review, reply}) => {
   return (
     <div className='review-container'>
       <Review
-        title={review.title}
-        stars={review.stars}
-        text={review.text}
+        place={review.place}
+        rating={review.rating}
+        content={review.content}
         author={review.author}
-        date={review.date}
+        published_at={review.published_at}
       />
       <Reply text={reply.text} author={reply.author} date={reply.date} />
     </div>
