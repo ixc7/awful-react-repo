@@ -1,11 +1,11 @@
 import React, { useContext } from 'react'
-import { Context } from './index'
+import { Global } from './index'
 import { truncate, formatDate } from './utils'
 import Card from './card'
 import data from '../static/data.json'
 
 const AllCards = () => {
-  const { view } = useContext(Context)
+  const { view } = useContext(Global)
 
   return (
     <div className={`cards-container ${view.cards}`}>

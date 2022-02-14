@@ -1,11 +1,11 @@
 import React, { useContext } from 'react'
-import { Context } from './index'
+import { Global } from './index'
 import Review from './review'
 import Reply from './reply'
 import data from '../static/data.json'
 
 const reviewSection = () => {
-  const { id, view } = useContext(Context)
+  const { id, view } = useContext(Global)
 
   const { place, rating, content, author, published_at } =
     data.filter(x => x.id === id)[0] || false

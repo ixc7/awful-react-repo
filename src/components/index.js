@@ -4,19 +4,19 @@ import CardSection from './cardSection'
 import Header from './header'
 import '../scss/global.scss'
 
-export const Context = createContext()
+export const Global = createContext()
 
 const App = () => {
   const [id, setId] = useState()
-  const [view, setView] = useState({ cards: 'hidden', review: 'visible' })
+  const [view, setView] = useState({ cards: 'visible', review: 'hidden' })
   return (
-    <Context.Provider value={{ id, setId, view, setView }}>
+    <Global.Provider value={{ id, setId, view, setView }}>
       <div className='container'>
         <Header />
         <CardSection />
         <ReviewSection />
       </div>
-    </Context.Provider>
+    </Global.Provider>
   )
 }
 

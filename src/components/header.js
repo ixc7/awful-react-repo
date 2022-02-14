@@ -1,8 +1,8 @@
 import React, { useContext } from 'react'
-import { Context } from './index'
+import { Global } from './index'
 
 const header = () => {
-  const { setView, setId } = useContext(Context)
+  const { setView, setId } = useContext(Global)
   return (
     <div className='header'>
       <div
