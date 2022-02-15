@@ -36,7 +36,7 @@ const Input = () => {
   )
 }
 
-const Text = () => {
+const Content = () => {
   const { id } = useContext(Global)
   const { update, placeholder, setPlaceholder } = useContext(Local)
   const getField = field => JSON.parse(localStorage.getItem(id) || 0)[field]
@@ -77,7 +77,7 @@ const Reply = () => {
   return (
     <Local.Provider value={{ current, update, placeholder, setPlaceholder }}>
       <div className='reply'>
-        <Text />
+        <Content />
         <Input />
       </div>
     </Local.Provider>

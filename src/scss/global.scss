@@ -10,6 +10,11 @@ $ltblue: #097ae6;
 $shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 
 $desktop: 1440px;
+$tablet: 768px;
+
+$pad-lg: 120px;
+$pad-md: 80px;
+$pad-sm: 20px;
 
 .hidden {
   pointer-events: none; 
@@ -20,7 +25,6 @@ $desktop: 1440px;
 
 html, body * {
   font-family: "Roboto";
-
   box-sizing: border-box;
   -webkit-user-select: none;
   ::-webkit-scrollbar {
@@ -30,7 +34,6 @@ html, body * {
 
 body {
   margin: 0;
-  font-family: "Roboto";
   font-style: normal;
   background: $grey; 
 }
@@ -55,11 +58,17 @@ body {
 
 .cards-container {
   z-index: 1;
-  padding: 100px 120px; 
   display: grid;
-  gap: 100px;
+  padding: 100px $pad-sm;
+  gap: 40px;
+  @media screen and (min-width: $tablet) {
+    padding: 100px $pad-md;
+    gap: 80px; 
+  }
   @media screen and (min-width: $desktop) {
     grid-template-columns: repeat(3, 1fr);
+    gap: 100px;
+    padding: 100px $pad-lg; 
   }
 }
 
@@ -74,7 +83,13 @@ body {
 
 .review-container {
   z-index: 2;
-  padding: 0px 120px; 
+  padding: 0px $pad-sm;
+  @media screen and (min-width: $tablet) {
+    padding: 0px $pad-md; 
+  }
+  @media screen and (min-width: desktop) {
+    padding: 0px $pad-lg; 
+  }
 }
 
 .header {
@@ -86,33 +101,13 @@ body {
   margin: auto;
   height: 60px;
   width: 100vw;
-  max-width: $desktop;
-  &::before {
-    content : '';
-    position: fixed; 
-    z-index: -1;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 60px;
-    background: $blue;
-  }
+  background: $blue; 
 }
 
 .review, .reply, .card {
   position: relative;
   background: $off-white;
   box-shadow: $shadow;
-}
-
-.review {
-  min-height: 250px;
-  margin: 100px 0px 55px 0px;
-}
-
-.reply {
-  min-height: 146px;
-  margin-bottom: 100px;
 }
 
 .header-title, .review-title, .card-title {
@@ -124,13 +119,14 @@ body {
 }
 
 .header-title {
-  margin: 16px 120px;
   color: $off-white;
-}
-
-.review-title {
-  padding: 20px 80px 5px 80px; 
-  color: $black;
+  padding: 16px $pad-sm; 
+  @media screen and (min-width: $tablet) {
+    padding: 16px $pad-md;
+  }
+  @media screen and (min-width: $desktop) {
+    padding: 16px $pad-lg;   
+  }
 }
 
 .card-title {
@@ -143,17 +139,39 @@ body {
   font-size: 18px;
   line-height: 21px;
   color: $ltgrey;
-  /* overflow: hidden; */
+}
+
+.review {
+  min-height: 250px;
+  padding: 0px $pad-sm;
+  margin: 100px 0px 40px 0px;
+  @media screen and (min-width: $desktop) {
+    margin-bottom: 55px; 
+    padding: 0px $pad-md; 
+  }
+}
+
+.review-title {
+  padding: 20px 0px 5px 0px; 
+  color: $black;
 }
 
 .review-text {
-  margin: 25px 80px 20px 80px; 
+  padding: 25px 0px 54px 0px;
+}
+
+.reply {
+  min-height: 146px; 
+  padding: 0px $pad-sm; 
+  margin-bottom: 100px;
+  @media screen and (min-width: $desktop) { 
+    padding: 0px $pad-md; 
+  } 
 }
 
 .reply-text {
-  min-height: 107px;
-  padding: 35px 0px;
-  margin: 0px 80px;
+  min-height: 107px; 
+  padding: 35px 0px 55px 0px;
 }
 
 .card-text {
@@ -179,17 +197,14 @@ body {
   color: $black;
 }
 
-.review-author-date-row, .reply-author-date-row {
-  position: relative;
-  margin: 0px 80px;
-  padding-bottom: 20px; 
+.review-author-date-row, .reply-author-date-row, .card-author-date-row {
+  position: absolute;
+  bottom: 20px;
+  width: 100%;
 }
 
 .card-author-date-row {
-  position: absolute;
-  bottom: 20px;
   padding: 0px 20px;
-  width: 100%;
 }
 
 .review-stars, .card-stars {
@@ -197,10 +212,6 @@ body {
   font-size: 18px;
   line-height: 18px;
   color: #fbcd33;
-}
-
-.review-stars {
-  margin-left: 80px; 
 }
 
 .card-stars {
@@ -220,12 +231,11 @@ body {
 }
 
 .comments-icon {
-  /* bottom: 21px; */
   bottom: 0;
   right: 20px;
   font-size: 14px;
   line-height: 14px;
-  color: $blue; 
+  color: $blue;
 }
 
 .dots-icon {
@@ -255,7 +265,7 @@ body {
   font-size: 18px;
   line-height: 18px;
   visibility: hidden;
-  padding: 12px 12px 12px 12px;
+  padding: 12px;
   div:hover {
     color: $ltblue;
   }
@@ -266,16 +276,19 @@ input[type=text] {
   font-size: 18px;
   line-height: 21px;
   color: $ltgrey; 
-  background: $off-white;
+  background: $off-white; 
   top: 0;
   left: 0;
   width: 100%;
   height: calc(100% - 56px);
-  padding: 0px 80px;
   border: none;
   resize: none;
   outline: none;
   &::placeholder {
     color: $ltblue
   }
+  padding: 0px $pad-sm 0px 54px; 
+  @media screen and (min-width: $desktop) { 
+    padding: 0px $pad-md;
+  } 
 }
