@@ -12,7 +12,6 @@ const Input = () => {
   const setReply = e => {
     e.preventDefault()
     if (msg.length) {
-    
       localStorage.setItem(
         id,
         JSON.stringify({
@@ -27,12 +26,18 @@ const Input = () => {
     }
   }
 
-  const placeholder = localStorage.getItem('replyCache') || 'Type your reply here ...'
-  
+  const placeholder =
+    localStorage.getItem('replyCache') || 'Type your reply here ...'
+
   return (
     <div className={inp}>
       <form onSubmit={setReply}>
-        <input type='text' placeholder={placeholder} value={msg} onChange={e => setMsg(e.target.value)} />
+        <input
+          type='text'
+          placeholder={placeholder}
+          value={msg}
+          onChange={e => setMsg(e.target.value)}
+        />
       </form>
       <div className='reply-icon fa fa-reply' onClick={setReply} />
     </div>
@@ -74,19 +79,19 @@ const Content = () => {
 const Reply = () => {
   const { id } = useContext(Global)
   const getId = () => localStorage.getItem(id)
-  
+
   const [val, setVal] = useState(getId())
   const inp = getId() ? 'hidden' : 'visible'
-  const cot = getId()  ? 'visible' : 'hidden'
-  
+  const cot = getId() ? 'visible' : 'hidden'
+
   useEffect(() => {
     const handler = () => val !== getId() && setVal(getId())
     window.addEventListener('storage', handler)
     return () => window.removeEventListener('storage', handler)
   })
-  
+
   useEffect(() => {
-      localStorage.removeItem('replyCache')
+    localStorage.removeItem('replyCache')
 
     setVal(getId()), [id]
   })

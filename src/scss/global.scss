@@ -1,11 +1,11 @@
 @import './fonts.scss';
 @import './icons.scss';
 
-$off-white: #fbfcfd; 
-$black: #000000; 
-$grey: #8d95a3; 
+$off-white: #fbfcfd;
+$black: #000000;
+$grey: #8d95a3;
 $ltgrey: #5d6167;
-$blue: #0057b3; 
+$blue: #0057b3;
 $ltblue: #097ae6;
 $shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 
@@ -17,14 +17,15 @@ $pad-md: 80px;
 $pad-sm: 20px;
 
 .hidden {
-  pointer-events: none; 
-  visibility: hidden; 
+  pointer-events: none;
+  visibility: hidden;
   overflow: hidden;
-  height: 0; 
+  height: 0;
 }
 
-html, body * {
-  font-family: "Roboto";
+html,
+body * {
+  font-family: 'Roboto';
   box-sizing: border-box;
   -webkit-user-select: none;
   ::-webkit-scrollbar {
@@ -35,10 +36,12 @@ html, body * {
 body {
   margin: 0;
   font-style: normal;
-  background: $grey; 
+  background: $grey;
 }
 
-.container, .cards-container, .review-container {
+.container,
+.cards-container,
+.review-container {
   position: absolute;
   top: 0;
   left: 0;
@@ -46,14 +49,16 @@ body {
 
 .container {
   z-index: 1;
-  height: 100vh; 
-  width: 100vw; 
+  height: 100vh;
+  width: 100vw;
   max-width: $desktop;
   overflow-x: hidden;
-  overflow-y: scroll; 
-  position: absolute; 
-  top: 0; left: 0; right: 0; 
-  margin: auto; 
+  overflow-y: scroll;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
 }
 
 .cards-container {
@@ -63,20 +68,20 @@ body {
   gap: 40px;
   @media screen and (min-width: $tablet) {
     padding: 100px $pad-md;
-    gap: 80px; 
+    gap: 80px;
   }
   @media screen and (min-width: $desktop) {
     grid-template-columns: repeat(3, 1fr);
     gap: 100px;
-    padding: 100px $pad-lg; 
+    padding: 100px $pad-lg;
   }
 }
 
 .card {
   position: relative;
-  min-height: 250px; 
+  min-height: 250px;
   @media screen and (min-width: $desktop) {
-    aspect-ratio: 300/250; 
+    aspect-ratio: 300/250;
     min-width: 300px;
   }
 }
@@ -85,10 +90,10 @@ body {
   z-index: 2;
   padding: 0px $pad-sm;
   @media screen and (min-width: $tablet) {
-    padding: 0px $pad-md; 
+    padding: 0px $pad-md;
   }
   @media screen and (min-width: desktop) {
-    padding: 0px $pad-lg; 
+    padding: 0px $pad-lg;
   }
 }
 
@@ -97,35 +102,39 @@ body {
   position: fixed;
   top: 0;
   left: 0;
-  right: 0; 
+  right: 0;
   margin: auto;
   height: 60px;
   width: 100vw;
-  background: $blue; 
+  background: $blue;
 }
 
-.review, .reply, .card {
+.review,
+.reply,
+.card {
   position: relative;
   background: $off-white;
   box-shadow: $shadow;
 }
 
-.header-title, .review-title, .card-title {
-  position: relative; 
+.header-title,
+.review-title,
+.card-title {
+  position: relative;
   font-weight: bold;
   font-size: 24px;
   line-height: 28px;
-  cursor: pointer; 
+  cursor: pointer;
 }
 
 .header-title {
   color: $off-white;
-  padding: 16px $pad-sm; 
+  padding: 16px $pad-sm;
   @media screen and (min-width: $tablet) {
     padding: 16px $pad-md;
   }
   @media screen and (min-width: $desktop) {
-    padding: 16px $pad-lg;   
+    padding: 16px $pad-lg;
   }
 }
 
@@ -134,8 +143,10 @@ body {
   color: $black;
 }
 
-.review-text, .reply-text, .card-text {
-  position: relative; 
+.review-text,
+.reply-text,
+.card-text {
+  position: relative;
   font-size: 18px;
   line-height: 21px;
   color: $ltgrey;
@@ -146,13 +157,13 @@ body {
   padding: 0px $pad-sm;
   margin: 100px 0px 40px 0px;
   @media screen and (min-width: $desktop) {
-    margin-bottom: 55px; 
-    padding: 0px $pad-md; 
+    margin-bottom: 55px;
+    padding: 0px $pad-md;
   }
 }
 
 .review-title {
-  padding: 20px 0px 5px 0px; 
+  padding: 20px 0px 5px 0px;
   color: $black;
 }
 
@@ -161,16 +172,16 @@ body {
 }
 
 .reply {
-  min-height: 146px; 
-  padding: 0px $pad-sm; 
+  min-height: 146px;
+  padding: 0px $pad-sm;
   margin-bottom: 100px;
-  @media screen and (min-width: $desktop) { 
-    padding: 0px $pad-md; 
-  } 
+  @media screen and (min-width: $desktop) {
+    padding: 0px $pad-md;
+  }
 }
 
 .reply-text {
-  min-height: 107px; 
+  min-height: 107px;
   padding: 35px 0px 55px 0px;
 }
 
@@ -179,7 +190,9 @@ body {
   max-height: calc(100% - 146px);
 }
 
-.review-date, .reply-date, .card-date {
+.review-date,
+.reply-date,
+.card-date {
   position: relative;
   display: inline-block;
   font-size: 14px;
@@ -187,7 +200,9 @@ body {
   color: $grey;
 }
 
-.review-author, .reply-author, .card-author {
+.review-author,
+.reply-author,
+.card-author {
   position: relative;
   display: inline-block;
   margin-right: 28px;
@@ -197,7 +212,9 @@ body {
   color: $black;
 }
 
-.review-author-date-row, .reply-author-date-row, .card-author-date-row {
+.review-author-date-row,
+.reply-author-date-row,
+.card-author-date-row {
   position: absolute;
   bottom: 20px;
   width: 100%;
@@ -207,7 +224,8 @@ body {
   padding: 0px 20px;
 }
 
-.review-stars, .card-stars {
+.review-stars,
+.card-stars {
   position: relative;
   font-size: 18px;
   line-height: 18px;
@@ -218,16 +236,18 @@ body {
   margin-left: 20px;
 }
 
-.comments-icon, .reply-icon, .dots-icon {
+.comments-icon,
+.reply-icon,
+.dots-icon {
   position: absolute;
 }
 
 .reply-icon {
-  left: 28px; 
-  top: 35px; 
+  left: 28px;
+  top: 35px;
   font-size: 18px;
   line-height: 18px;
-  color: $ltblue; 
+  color: $ltblue;
 }
 
 .comments-icon {
@@ -239,13 +259,13 @@ body {
 }
 
 .dots-icon {
-  right: 0; 
-  top: 35px; 
+  right: 0;
+  top: 35px;
   height: calc(100% - 35px);
-  width: 50px; 
+  width: 50px;
   font-size: 18px;
   line-height: 18px;
-  color: $blue; 
+  color: $blue;
   &:hover {
     color: $ltblue;
     .dot-options {
@@ -253,8 +273,6 @@ body {
     }
   }
 }
-
-/* TODO cleanup */
 
 .dot-options {
   position: absolute;
@@ -271,12 +289,12 @@ body {
   }
 }
 
-input[type=text] {
+input[type='text'] {
   position: absolute;
   font-size: 18px;
   line-height: 21px;
-  color: $ltgrey; 
-  background: $off-white; 
+  color: $ltgrey;
+  background: $off-white;
   top: 0;
   left: 0;
   width: 100%;
@@ -285,10 +303,10 @@ input[type=text] {
   resize: none;
   outline: none;
   &::placeholder {
-    color: $ltblue
+    color: $ltblue;
   }
-  padding: 0px $pad-sm 0px 54px; 
-  @media screen and (min-width: $desktop) { 
+  padding: 0px $pad-sm 0px 54px;
+  @media screen and (min-width: $desktop) {
     padding: 0px $pad-md;
-  } 
+  }
 }

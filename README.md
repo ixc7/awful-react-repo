@@ -10,5 +10,3 @@ npm run start
 ```
 
 ## [online demo](https://react-repo.netlify.app/)
-
-
