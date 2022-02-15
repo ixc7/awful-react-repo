@@ -106,7 +106,18 @@ body {
   margin: auto;
   height: 60px;
   width: 100vw;
+  max-width: $desktop;
   background: $blue;
+  &::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    margin: auto;
+    height: 60px;
+    width: 100vw;
+    background: $blue;
+  }
 }
 
 .review,
