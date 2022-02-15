@@ -1,6 +1,6 @@
 import React from 'react'
-import Stars from './stars'
-import { formatDate } from './utils'
+import Stars from '../stars'
+import { formatDate } from '../../utils'
 
 const Review = ({ author, place, published_at, rating, content, id }) => (
   <div className='review'>

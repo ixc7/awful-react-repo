@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useState, useEffect } from 'react'
-import { Global } from './index'
-import { formatDate } from './utils'
+import { Global } from '../index'
+import { formatDate } from '../../utils'
 
 const Local = createContext()
 

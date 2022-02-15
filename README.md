@@ -1,6 +1,6 @@
 README.md
 
-## installation
+## Installation
 
 ```
 git clone https://github.com/ixc7/cool-react-repo.git
@@ -9,4 +9,4 @@ npm install
 npm run start
 ```
 
-## [online demo](https://react-repo.netlify.app/)
+## [Online demo](https://react-repo.netlify.app/)

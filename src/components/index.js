@@ -1,6 +1,6 @@
 import React, { createContext, useState } from 'react'
-import ReviewSection from './reviewSection'
-import CardSection from './cardSection'
+import ReviewSection from './review'
+import CardSection from './cards'
 import Header from './header'
 import '../scss/global.scss'
 

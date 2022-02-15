@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
-import { Global } from './index'
-import Stars from './stars'
+import { Global } from '../index'
+import Stars from '../stars'
 
 const Card = ({ author, place, published_at, rating, content, id }) => {
   const { setId, setView } = useContext(Global)

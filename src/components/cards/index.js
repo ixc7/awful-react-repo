@@ -1,8 +1,8 @@
 import React, { useContext } from 'react'
-import { Global } from './index'
-import { truncate, formatDate } from './utils'
+import { Global } from '../index'
+import { truncate, formatDate } from '../../utils'
+import data from '../../static/data.json'
 import Card from './card'
-import data from '../static/data.json'
 
 const AllCards = () => {
   const { view } = useContext(Global)

@@ -1,8 +1,8 @@
 import React, { useContext } from 'react'
-import { Global } from './index'
+import { Global } from '../index'
+import data from '../../static/data.json'
 import Review from './review'
 import Reply from './reply'
-import data from '../static/data.json'
 
 const reviewSection = () => {
   const { id, view } = useContext(Global)
