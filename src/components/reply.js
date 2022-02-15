@@ -6,7 +6,7 @@ const Local = createContext()
 
 const Input = () => {
   const { id } = useContext(Global)
-  const { val, inp, placeholder, setPlaceholder } = useContext(Local)
+  const { val, setVal, inp, placeholder, setPlaceholder } = useContext(Local)
   const [msg, setMsg] = useState('')
 
   const setReply = e => {
@@ -20,12 +20,11 @@ const Input = () => {
           content: msg
         })
       )
-      // update(id)
+      setVal(localStorage.getItem(id))
       setPlaceholder('Type your reply here')
       setMsg('')
     }
   }
-
   return (
     <div className={inp}>
       <form onSubmit={setReply}>
@@ -39,7 +38,7 @@ const Input = () => {
 const Content = () => {
   const { id } = useContext(Global)
   const { val, cot, placeholder, setPlaceholder } = useContext(Local)
-  const getField = field => JSON.parse(val || 0)[field]
+  const getField = field => JSON.parse(localStorage.getItem(id) || 0)[field]
   
   const remove = () => {
     setPlaceholder(getField('content'))
@@ -83,12 +82,11 @@ const Reply = () => {
   })
   
   useEffect(() => setVal(getId()), [id])
-
-      const inp = getId() ? 'hidden' : 'visible'
-      const cot = getId()  ? 'visible' : 'hidden'
+  const inp = getId() ? 'hidden' : 'visible'
+  const cot = getId()  ? 'visible' : 'hidden'
 
   return (
-    <Local.Provider value={{ val, inp, cot, placeholder, setPlaceholder }}>
+    <Local.Provider value={{ val, setVal, inp, cot, placeholder, setPlaceholder }}>
       <div className='reply'>
         <Content />
         <Input />
