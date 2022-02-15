@@ -11,8 +11,8 @@ const App = () => {
   const [view, setView] = useState({ cards: 'visible', review: 'hidden' })
   return (
     <Global.Provider value={{ id, setId, view, setView }}>
+      <Header />
       <div className='container'>
-        <Header />
         <CardSection />
         <ReviewSection />
       </div>

@@ -4,95 +4,100 @@
 $off-white: #fbfcfd; 
 $black: #000000; 
 $grey: #8d95a3; 
-$ltgrey: #5d6167; 
+$ltgrey: #5d6167;
 $blue: #0057b3; 
-$ltblue: #097ae6; 
-$shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); 
+$ltblue: #097ae6;
+$shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 
 .hidden {
+  pointer-events: none; 
   visibility: hidden; 
   overflow: hidden;
-  pointer-events: none; 
   height: 0; 
 }
 
 html, body * {
+  font-family: "Roboto";
+
   box-sizing: border-box;
+  -webkit-user-select: none;
   ::-webkit-scrollbar {
     display: none;
   }
-  -webkit-user-select: none;
 }
 
 body {
   margin: 0;
   font-family: "Roboto";
   font-style: normal;
-  background: $off-white;
-  height: 100vh;
-  overflow: hidden;
+  background: $grey; 
 }
 
 .container, .cards-container, .review-container {
   position: absolute;
   top: 0;
   left: 0;
-  background: $grey;
 }
 
 .container {
   z-index: 1;
-  height: 100vh;
+  height: 100vh; 
   width: 100vw; 
-  max-height: 900px;
   max-width: 1440px;
   overflow-x: hidden;
   overflow-y: scroll; 
+  position: absolute; 
+  top: 0; left: 0; right: 0; 
+  margin: auto; 
 }
 
 .cards-container {
   z-index: 1;
-  display: flex; 
-  flex-direction: row;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  flex-basis: 10%;
-  width: calc(100% - 240px);
-  margin-left: 120px;
-  margin-right: 120px;
-  /* 
-     TODO
-     this is the lowest value that works
-  */
-  border: 0.0000000001px solid transparent; 
+  padding: 100px 120px; 
+
+  /* display: flex; */
+  /* flex-flow: row wrap; */
+  /* justify-content: space-between; */
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 100px;
+  background: orange;
 }
+
+.card {
+  position: relative;
+  @media screen and (min-width: 1440px) {
+    aspect-ratio: 300/250; 
+    min-width: 300px;
+    min-height: 250px;
+  }
+}
+
 
 .review-container {
   z-index: 2;
-  width: 100%;
-  height: 100%;
-  position: absolute; 
+  padding: 0px 120px; 
 }
 
 .header {
-  position: sticky;
+  z-index: 2;
+  position: fixed;
   top: 0;
   left: 0;
-  z-index: 4;
+  right: 0; 
+  margin: auto;
   height: 60px;
-  width: 100%;
-  background: $blue;
-  /* 
-    chrome 98.0.4758.9 dev (x86_64) macOS 11.6
-    https://samhermes.com/posts/closing-gap-above-sticky-elements/ 
-  */
-  &::after {
-    content: '';
-    position: absolute;
-    top: -1px;
+  width: 100vw;
+  max-width: 1440px;
+  &::before {
+    content : '';
+    position: fixed; 
+    z-index: -1;
+    top: 0;
     left: 0;
-    height: 1px;
-    width: 100%;
+    width: 100vw;
+    height: 60px;
     background: $blue;
   }
 }
@@ -104,29 +109,13 @@ body {
 }
 
 .review {
-  width: calc(100% - 240px);
   min-height: 250px;
-  margin: 100px 120px 55px 120px;
+  margin: 100px 0px 55px 0px;
 }
 
 .reply {
-  width: calc(100% - 240px); 
   min-height: 146px;
-  margin: 0px 120px;
   margin-bottom: 100px;
-}
-
-.card {
-  width: 300px;
-  height: 250px;
-  overflow: hidden;
-  margin-top: 100px; 
-  /* 
-    TODO change ...
-  */
-  &:last-child {
-    margin-bottom: 100px;
-  }
 }
 
 .header-title, .review-title, .card-title {
@@ -138,8 +127,7 @@ body {
 }
 
 .header-title {
-  padding: 16px 0px;
-  margin: 0px 120px;
+  margin: 16px 120px;
   color: $off-white;
 }
 
@@ -173,7 +161,7 @@ body {
 
 .card-text {
   margin: 20px;
-  max-height: calc(100% - 146px); 
+  max-height: calc(100% - 146px);
 }
 
 .review-date, .reply-date, .card-date {
@@ -194,22 +182,17 @@ body {
   color: $black;
 }
 
-.reply-author-date-row {
+.review-author-date-row, .reply-author-date-row {
   position: relative;
-  margin-left: 80px;
-  margin-right: 80px;
-  padding-bottom: 20px; 
-}
-
-.review-author-date-row {
-  position: relative;
-  margin-left: 80px;
+  margin: 0px 80px;
   padding-bottom: 20px; 
 }
 
 .card-author-date-row {
-  position: relative;
-  margin-left: 20px; 
+  position: absolute;
+  bottom: 20px;
+  padding: 0px 20px;
+  width: 100%;
 }
 
 .review-stars, .card-stars {
@@ -240,7 +223,8 @@ body {
 }
 
 .comments-icon {
-  bottom: 21px;
+  /* bottom: 21px; */
+  bottom: 0;
   right: 20px;
   font-size: 14px;
   line-height: 14px;
@@ -256,15 +240,17 @@ body {
   line-height: 18px;
   color: $blue; 
   &:hover {
+    color: $ltblue;
     .dot-options {
       visibility: visible;
     }
   }
 }
 
+/* TODO cleanup */
+
 .dot-options {
   position: absolute;
-  font-family: "Roboto";
   color: $ltgrey;
   font-weight: normal;
   top: 18px;
@@ -274,14 +260,12 @@ body {
   visibility: hidden;
   padding: 12px 12px 12px 12px;
   div:hover {
-    font-weight: bold;
-    color: $blue;
+    color: $ltblue;
   }
 }
 
 input[type=text] {
   position: absolute;
-  font-family: "Roboto";
   font-size: 18px;
   line-height: 21px;
   color: $ltgrey; 

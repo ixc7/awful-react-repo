@@ -73,7 +73,7 @@ const Text = () => {
 const Reply = () => {
   const [current, update] = useState()
   const [placeholder, setPlaceholder] = useState('Type your reply here')
-  
+
   return (
     <Local.Provider value={{ current, update, placeholder, setPlaceholder }}>
       <div className='reply'>

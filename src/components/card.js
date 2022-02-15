@@ -21,8 +21,8 @@ const Card = ({ author, place, published_at, rating, content, id }) => {
       <div className='card-author-date-row'>
         <div className='card-author'>{author}</div>
         <div className='card-date'>{published_at}</div>
+        <div className='comments-icon fa fa-msg' />
       </div>
-      <div className='comments-icon fa fa-msg' />
     </div>
   )
 }
