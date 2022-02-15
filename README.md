@@ -9,4 +9,4 @@ npm install
 npm run start
 ```
 
-## [Online demo](https://react-repo.netlify.app/)
+## [Demo](https://react-repo.netlify.app/)
