@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState } from 'react'
+import React, { createContext, useContext, useState, useEffect } from 'react'
 import { Global } from './index'
 import { formatDate } from './utils'
 
@@ -6,7 +6,7 @@ const Local = createContext()
 
 const Input = () => {
   const { id } = useContext(Global)
-  const { update, placeholder, setPlaceholder } = useContext(Local)
+  const { val, inp, placeholder, setPlaceholder } = useContext(Local)
   const [msg, setMsg] = useState('')
 
   const setReply = e => {
@@ -20,14 +20,14 @@ const Input = () => {
           content: msg
         })
       )
-      update(id)
+      // update(id)
       setPlaceholder('Type your reply here')
       setMsg('')
     }
   }
 
   return (
-    <div className={localStorage.getItem(id) ? 'hidden' : 'visible'}>
+    <div className={inp}>
       <form onSubmit={setReply}>
         <input type='text' placeholder={placeholder} value={msg} onChange={e => setMsg(e.target.value)} />
       </form>
@@ -38,22 +38,21 @@ const Input = () => {
 
 const Content = () => {
   const { id } = useContext(Global)
-  const { update, placeholder, setPlaceholder } = useContext(Local)
-  const getField = field => JSON.parse(localStorage.getItem(id) || 0)[field]
-
+  const { val, cot, placeholder, setPlaceholder } = useContext(Local)
+  const getField = field => JSON.parse(val || 0)[field]
+  
   const remove = () => {
-      localStorage.removeItem(id)
-      // TODO manual render w/ localStorage get rid of this.
-      update(Math.random())
+    setPlaceholder(getField('content'))
+    localStorage.removeItem(id)
   }
 
   const edit = () => {
     setPlaceholder(getField('content'))
-    remove()
+    localStorage.removeItem(id)
   }
 
   return (
-    <div className={localStorage.getItem(id) ? 'visible' : 'hidden'}>
+    <div className={cot}>
       <div className='reply-text'>{getField('content')}</div>
       <div className='reply-author-date-row'>
         <div className='reply-author'>{getField('author')}</div>
@@ -71,11 +70,25 @@ const Content = () => {
 }
 
 const Reply = () => {
-  const [current, update] = useState()
+  const { id } = useContext(Global)
+  const getId = () => localStorage.getItem(id)
+
   const [placeholder, setPlaceholder] = useState('Type your reply here')
+  const [val, setVal] = useState(getId())
+
+  useEffect(() => {
+    const handler = () => val !== getId() && setVal(getId())
+    window.addEventListener('storage', handler)
+    return () => window.removeEventListener('storage', handler)
+  })
+  
+  useEffect(() => setVal(getId()), [id])
+
+      const inp = getId() ? 'hidden' : 'visible'
+      const cot = getId()  ? 'visible' : 'hidden'
 
   return (
-    <Local.Provider value={{ current, update, placeholder, setPlaceholder }}>
+    <Local.Provider value={{ val, inp, cot, placeholder, setPlaceholder }}>
       <div className='reply'>
         <Content />
         <Input />
