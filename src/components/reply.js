@@ -6,12 +6,13 @@ const Local = createContext()
 
 const Input = () => {
   const { id } = useContext(Global)
-  const { val, setVal, inp, placeholder, setPlaceholder } = useContext(Local)
+  const { setVal, inp } = useContext(Local)
   const [msg, setMsg] = useState('')
 
   const setReply = e => {
     e.preventDefault()
     if (msg.length) {
+    
       localStorage.setItem(
         id,
         JSON.stringify({
@@ -20,34 +21,37 @@ const Input = () => {
           content: msg
         })
       )
+      localStorage.removeItem('replyCache')
       setVal(localStorage.getItem(id))
-      setPlaceholder('Type your reply here')
       setMsg('')
     }
   }
+
+  const placeholder = localStorage.getItem('replyCache') || 'Type your reply here ...'
+  
   return (
     <div className={inp}>
       <form onSubmit={setReply}>
         <input type='text' placeholder={placeholder} value={msg} onChange={e => setMsg(e.target.value)} />
       </form>
-      <div className='reply-icon fa fa-reply' onClick={setReply}  />
+      <div className='reply-icon fa fa-reply' onClick={setReply} />
     </div>
   )
 }
 
 const Content = () => {
   const { id } = useContext(Global)
-  const { val, cot, placeholder, setPlaceholder } = useContext(Local)
-  const getField = field => JSON.parse(localStorage.getItem(id) || 0)[field]
-  
+  const { val, setVal, cot } = useContext(Local)
+  const getField = field => JSON.parse(val || 0)[field]
+
   const remove = () => {
-    setPlaceholder(getField('content'))
     localStorage.removeItem(id)
+    setVal(localStorage.getItem(id))
   }
 
   const edit = () => {
-    setPlaceholder(getField('content'))
-    localStorage.removeItem(id)
+    localStorage.setItem('replyCache', getField('content'))
+    remove()
   }
 
   return (
@@ -57,7 +61,6 @@ const Content = () => {
         <div className='reply-author'>{getField('author')}</div>
         <div className='reply-date'>{formatDate(getField('published_at'))}</div>
       </div>
-
       <div className='dots-icon fa fa-dots'>
         <div className='dot-options'>
           <div onClick={edit}>edit</div>
@@ -71,22 +74,25 @@ const Content = () => {
 const Reply = () => {
   const { id } = useContext(Global)
   const getId = () => localStorage.getItem(id)
-
-  const [placeholder, setPlaceholder] = useState('Type your reply here')
+  
   const [val, setVal] = useState(getId())
-
+  const inp = getId() ? 'hidden' : 'visible'
+  const cot = getId()  ? 'visible' : 'hidden'
+  
   useEffect(() => {
     const handler = () => val !== getId() && setVal(getId())
     window.addEventListener('storage', handler)
     return () => window.removeEventListener('storage', handler)
   })
   
-  useEffect(() => setVal(getId()), [id])
-  const inp = getId() ? 'hidden' : 'visible'
-  const cot = getId()  ? 'visible' : 'hidden'
+  useEffect(() => {
+      localStorage.removeItem('replyCache')
+
+    setVal(getId()), [id]
+  })
 
   return (
-    <Local.Provider value={{ val, setVal, inp, cot, placeholder, setPlaceholder }}>
+    <Local.Provider value={{ val, setVal, inp, cot }}>
       <div className='reply'>
         <Content />
         <Input />
