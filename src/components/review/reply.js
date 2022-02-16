@@ -93,8 +93,8 @@ const Reply = () => {
   useEffect(() => {
     localStorage.removeItem('replyCache')
 
-    setVal(getId()), [id]
-  })
+    setVal(getId())
+  }, [id])
 
   return (
     <Local.Provider value={{ val, setVal, inp, cot }}>
